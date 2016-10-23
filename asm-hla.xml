@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "language.dtd">
-
+<!-- kate: space-indent on; indent-width: 2; mixed-indent off; -->
 <language name="High-Level Assembly" version="0.1" kateversion="2.4"
           section="Assembler" extensions="*.hla;*.HLA" indenter="normal"
           author="Alexander Rojas">
@@ -29,10 +29,10 @@
 
       <item> shl </item><!-- shl(n, a): a =<< n -->
       <item> shr </item><!-- shr(n, a): a =>> n -->
-      <item> sar </item><!-- sar(n, a): a = (a >> 1) | (a & 0x80ï¿œ) n times   -->
+      <item> sar </item><!-- sar(n, a): a = (a >> 1) | (a & 0x80…) n times   -->
       <item> rol </item><!-- rol(n, a): a = (a >> 1) | (a << sizeof(a)) n times -->
       <item> ror </item><!-- ror(n, a): a = (a << 1) | (a >> sizeof(a)) n times -->
-      <item> rcl </item><!-- rcl(n, a): a = (a >> 1) | (@c << sizeof(a)), @c = a & 0x80ï¿œ n times -->
+      <item> rcl </item><!-- rcl(n, a): a = (a >> 1) | (@c << sizeof(a)), @c = a & 0x80… n times -->
       <item> rcr </item><!-- rcr(n, a): a = (a << 1) | (@c >> sizeof(a)), @c = a & 1 n times -->
 
       <item> cld </item>
