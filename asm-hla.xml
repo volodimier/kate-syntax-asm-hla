@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "language.dtd">
-<!-- kate: space-indent on; indent-width: 2; mixed-indent off; -->
+
 <language name="High-Level Assembly" version="0.1" kateversion="2.4"
-          section="Assembler" extension="*.hla;*.HLA" indenter="normal"
+          section="Assembler" extensions="*.hla;*.HLA" indenter="normal"
           author="Alexander Rojas">
+
   <highlighting>
-    <list name="keywords">
+    <list name="Keywords">
       <item> program </item>
       <item> static </item>
       <item> begin </item>
       <item> end </item>
       <item> true </item>
       <item> false </item>
-      
+
       <item> mov </item><!-- mov(a, b): b = a -->
       <item> add </item><!-- add(a, b): b = b + a -->
       <item> sub </item><!-- sub(a, b): b = b - a -->
@@ -22,18 +23,18 @@
       <item> and </item><!-- and(a, b): b = b & a -->
       <item> or </item><!-- or(a, b): b = b | a -->
       <item> xor </item><!-- xor(a, b): b = b ? a -->
-      <item> not </item><!-- not(a): a = �a -->
+      <item> not </item><!-- not(a): a = ¬a -->
       <item> movsx </item><!-- movsx(a, b): b = a with sign extention sizeof(b) > sizeof(b) -->
       <item> movzx </item><!-- movsz(a, b): low(b) = a and high(b) = 0 -->
-      
+
       <item> shl </item><!-- shl(n, a): a =<< n -->
       <item> shr </item><!-- shr(n, a): a =>> n -->
-      <item> sar </item><!-- sar(n, a): a = (a >> 1) | (a & 0x80�) n times   -->
+      <item> sar </item><!-- sar(n, a): a = (a >> 1) | (a & 0x80ï¿œ) n times   -->
       <item> rol </item><!-- rol(n, a): a = (a >> 1) | (a << sizeof(a)) n times -->
       <item> ror </item><!-- ror(n, a): a = (a << 1) | (a >> sizeof(a)) n times -->
-      <item> rcl </item><!-- rcl(n, a): a = (a >> 1) | (@c << sizeof(a)), @c = a & 0x80� n times -->
+      <item> rcl </item><!-- rcl(n, a): a = (a >> 1) | (@c << sizeof(a)), @c = a & 0x80ï¿œ n times -->
       <item> rcr </item><!-- rcr(n, a): a = (a << 1) | (@c >> sizeof(a)), @c = a & 1 n times -->
-      
+
       <item> cld </item>
       <item> std </item>
       <item> cli </item>
@@ -43,17 +44,18 @@
       <item> cmc </item>
       <item> sahf </item>
       <item> lahf </item>
-      
+
       <item>cbw</item><!-- cbw(): al ? ax w/ sign extension -->
       <item>cwd</item><!-- cbd(): ax ? dx:ax w/ sign extension -->
       <item>cqd</item><!-- cbq(): eax ? edx:eax w/ sign extension -->
       <item>cwde</item><!-- cwde(): ax ? eax w/ sign extension -->
-      
+
       <item> if </item>
       <item> elseif </item>
       <item> else </item>
       <item> endif </item>
       <item> while </item>
+      <item> do </item>
       <item> endwhile </item>
       <item> for </item>
       <item> forever </item>
@@ -66,33 +68,33 @@
       <item> exception </item>
       <item> endtry </item>
     </list>
-    <list name="types">
+    <list name="Data Type">
       <item> int8 </item>
       <item> int16 </item>
       <item> int32 </item>
       <item> int64 </item>
       <item> int128 </item>
-      
+
       <item> uns8 </item>
       <item> uns16 </item>
       <item> uns32 </item>
       <item> uns64 </item>
       <item> uns128 </item>
-      
+
       <item> real32 </item>
       <item> real64 </item>
       <item> real80 </item>
-      
+
       <item> byte </item>
       <item> word </item>
       <item> dword </item>
       <item> qword </item>
       <item> lword </item>
-      
+
       <item> boolean </item>
       <item> char </item>
     </list>
-    <list name="flags">
+    <list name="Flags">
       <item> @c </item>
       <item> @nc </item>
       <item> @z </item>
@@ -102,37 +104,38 @@
       <item> @s </item>
       <item> @ns </item>
     </list>
-    <list name="registers">
+    <list name="Registers">
       <item> al </item>
       <item> ah </item>
       <item> ax </item>
       <item> eax </item>
-      
+
       <item> bl </item>
       <item> bh </item>
       <item> bx </item>
       <item> bax </item>
-      
+
       <item> cl </item>
       <item> ch </item>
       <item> cx </item>
       <item> cax </item>
-      
+
       <item> dl </item>
       <item> dh </item>
       <item> dx </item>
       <item> dax </item>
     </list>
     <contexts>
-      <context attribute="Normal Text" lineEndContext="#stay" name="Normal">
+      <context attribute="Normal Text" lineEndContext="#stay" name="Normal Text">
         <RegExpr      attribute="Preprocessor" context="#stay" String="^#\s*[a-zA-Z_][a-zA-Z_0-9]*\s*\(.*\)\s*;" firstNonSpace="true" />
         <HlCChar      attribute="Char" context="#stay"/>
         <RegExpr      attribute="Char" context="#stay" String="#([0-9]([0-9_]*[0-9])?|\$[0-9A-Fa-f]([0-9A-Fa-f_]*[0-9A-Fa-f])?|%[01]([01_]*[01])?)" />
-        <keyword      attribute="Keyword" context="#stay" String="keywords" />
-        <keyword      attribute="Registers" context="#stay" String="registers" />
-        <keyword      attribute="Flags" context="#stay" String="flags" />
-        <keyword      attribute="Data Type" context="#stay" String="types" />
+        <keyword      attribute="Keyword" context="#stay" String="Keywords" />
+        <keyword      attribute="Registers" context="#stay" String="Registers" />
+        <keyword      attribute="Flags" context="#stay" String="Flags" />
+        <keyword      attribute="Data Type" context="#stay" String="Data Type" />
         <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="/"/>
+        <Detect2Chars attribute="Comment" context="Commentar 2" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar   attribute="String" context="String" char="&quot;" />
         <RegExpr      attribute="Decimal" context="#stay" String="[-+]?[0-9]([0-9_]*[0-9])?" />
         <RegExpr      attribute="Float" context="#stay" String="[-+]?([0-9]([0-9_]*[0-9])?)?\.?[0-9]([0-9_]*[0-9])?([eE][-+]?[0-9]([0-9_]*[0-9])?)?" />
@@ -143,8 +146,12 @@
       <context attribute="Comment" lineEndContext="#pop" name="Commentar 1">
       </context>
       
+      <context attribute="Comment" lineEndContext="#stay" name="Commentar 2">
+        <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
+      </context>
+
       <context attribute="Hex" lineEndContext="#pop" name="Hex" />
-      
+
       <context attribute="Binary" lineEndContext="#pop" name="Binary" />
 
       <context attribute="String" lineEndContext="#pop" name="String">
@@ -171,7 +178,8 @@
   </highlighting>
   <general>
     <comments>
-      <comment name="singleLine" start="//" />
+        <comment name="singleLine" start="//" />
+        <comment name="multiLine" start="/*" end="*/" />
     </comments>
   </general>
 </language>
